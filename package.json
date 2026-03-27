@@ -1,0 +1,57 @@
+{
+  "name": "@rizkyhaksono/npm-beautify-log",
+  "version": "1.0.0",
+  "description": "Beautified TypeScript logger for Next.js with info/debug/warn/error levels",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build": "npm run clean && npm run build:js && npm run build:types",
+    "build:js": "tsup src/index.ts --format esm,cjs --sourcemap --clean",
+    "build:types": "tsc --project tsconfig.json --emitDeclarationOnly --declaration --declarationMap --outDir dist",
+    "dev": "tsup src/index.ts --format esm,cjs --watch",
+    "lint": "tsc --noEmit",
+    "test": "npm run build && node --test tests/**/*.test.cjs",
+    "prepublishOnly": "npm run lint && npm run test"
+  },
+  "keywords": [
+    "nextjs",
+    "logger",
+    "typescript",
+    "beautify",
+    "console"
+  ],
+  "author": "rizkyhaksono",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rizkyhaksono/npm-beautify-log.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rizkyhaksono/npm-beautify-log/issues"
+  },
+  "homepage": "https://github.com/rizkyhaksono/npm-beautify-log#readme",
+  "devDependencies": {
+    "@types/node": "^25.5.0",
+    "tsup": "^8.5.1",
+    "typescript": "^6.0.2"
+  }
+}
