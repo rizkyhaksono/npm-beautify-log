@@ -1,6 +1,6 @@
 {
   "name": "@rizkyhaksono/npm-beautify-log",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Beautified TypeScript logger for Next.js with info/debug/warn/error levels",
   "type": "module",
   "main": "./dist/index.cjs",
